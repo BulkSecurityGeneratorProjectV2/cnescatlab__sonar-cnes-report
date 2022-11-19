@@ -89,7 +89,7 @@ public class ExportTask implements RequestHandler {
         Response.Stream stream = response.stream();
 
         // Get a temp folder
-        final File outputDirectory = File.createTempFile("cnesreport", Long.toString(System.nanoTime()));
+        final File outputDirectory = Files.createTempFile("cnesreport", Long.toString(System.nanoTime())).toFile();
 
         // Last line create file instead of folder, we delete file to put folder at the same place later
         Files.delete(outputDirectory.toPath());
